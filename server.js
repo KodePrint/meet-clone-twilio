@@ -1,15 +1,33 @@
 require('dotenv').config();
 const {v4: uuidv4} = require('uuid');
 const AccessToken = require('twilio').jwt.AccessToken;
-const VideoGrant = AccessToken.VideoGrant;
 const express = require('express');
 const { TokenInstance } = require('twilio/lib/rest/api/v2010/account/token');
+const cors = require('cors')
 const routerApi = require('./routes')
+
+const VideoGrant = AccessToken.VideoGrant;
+
+// Settigs API WhiteList
+const whitelist = ['http://localhost:5500','http://localhost:3005',]
 
 const app = express();
 const port = 5000;
 app.use(express.json());
 
+// Cors
+const option = {
+  origin: (origin, callback) => {
+    if(whitelist.includes(origin) || !origin){
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}
+app.use(cors());
+
+//Routes
 routerApi(app);
 
 // Create the Client
