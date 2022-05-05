@@ -1,3 +1,7 @@
+const AccessToken = require('twilio').jwt.AccessToken;
+const {v4: uuidv4} = require('uuid');
+const VideoGrant = AccessToken.VideoGrant;
+
 const getAccessToken = (roomName) => {
   // Create an Access Token
   const accessToken = new AccessToken(

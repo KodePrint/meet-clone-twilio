@@ -14,12 +14,13 @@ router.get('/', (req, res) => {
 );
 
 // Post Routes
-router.post('/create-room',
+router.post('/',
   validatorHandler(createRoomScheme, 'body'),
   async (req, res, next) => {
+    console.log(req.body)
     try {
-      const { roomName } = req.body;
-      const room = await service.createRoom(roomName);
+      const data = req.body;
+      const room = await service.createRoom(data);
       res.status(201).json(room)
     } catch (error) {
       next(error);
