@@ -4,11 +4,13 @@ const AccessToken = require('twilio').jwt.AccessToken;
 const VideoGrant = AccessToken.VideoGrant;
 const express = require('express');
 const { TokenInstance } = require('twilio/lib/rest/api/v2010/account/token');
+const routerApi = require('./routes')
+
 const app = express();
 const port = 5000;
+app.use(express.json());
 
-
-app.use(express.json())
+routerApi(app);
 
 // Create the Client
 const twilioClient = require('twilio')(
