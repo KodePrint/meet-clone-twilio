@@ -1,6 +1,6 @@
 const Video = require('twilio-video');
 
-const startRoom = async(roomName) => {
+const startRoom = async(roomName, options) => {
   // console.log(roomName)
   const url = (`http://localhost:5000/api/v1/room`)
   //   .then(response => response.json())
@@ -18,14 +18,13 @@ const startRoom = async(roomName) => {
   const {token} = await res.json();
   
   // Join the vide room with token
-  const room = await joinVideoRoom(roomName, token);
+  const room = await joinVideoRoom(roomName, token, options);
   console.log(room)
   
   // Render the local and remote participants
   handleConnectParticipant(room.localParticipant);
   room.participants.forEach(handleConnectParticipant);
   room.on('participantConnected', handleConnectParticipant);
-
 };
 
 const handleConnectParticipant = (participant) => {
@@ -53,9 +52,11 @@ const handleTrackPublication = (trackPublication, participant) => {
   trackPublication.on('subscribed', displayTrack);
 }
 
-const joinVideoRoom = async(roomName, token) => {
+const joinVideoRoom = async(roomName, token, options) => {
   const room = await Video.connect(token, {
     room: roomName,
+    video: options.video,
+    audio: options.aduio,
   });
   return room;
 }
