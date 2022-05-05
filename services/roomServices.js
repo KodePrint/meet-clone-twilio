@@ -1,4 +1,5 @@
-import createRoom from "../utils/createRoom";
+const {findOrCreateRoom} = require('../utils/findOrCreateRoom');
+const {getAccessToken} = require('../utils/getToken');
 
 class RoomServices {
   constructor() {}
@@ -7,7 +8,7 @@ class RoomServices {
   async createRoom(data) {
     let { roomName } = data;
     await createRoom(roomName);
-
+    return {'message': 'Room created'};
   }
 };
 

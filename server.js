@@ -81,6 +81,9 @@ app.post("/join-room", async (req, res) => {
   });
 });
 
+// Middlewares
+
+
 // Start the Server
 app.listen(port, () => {
   console.log(`Server Express runing on port ${port}`);
