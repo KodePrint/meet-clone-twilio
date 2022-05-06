@@ -1,4 +1,5 @@
-import { joinVideoRoom } from './joinVideoRoom';
+//import { joinVideoRoom } from './joinVideoRoom';
+import { connect } from './joinVideoRoom';
 import { handleConnectParticipant } from "./handlerConnetParticipant";
 
 const startRoom = async(data, options) => {
@@ -29,8 +30,10 @@ const startRoom = async(data, options) => {
     'userInfoRoom', JSON.stringify(userInfoRoom)
   );
   
+  // return connect();
   // Join the vide room with token
-  // const room = await joinVideoRoom(roomName, token, options);
+  //const room = await joinVideoRoom(roomName, token, options);
+  //return room
   
   // // Render the local and remote participants
   // handleConnectParticipant(room.localParticipant);
@@ -72,4 +75,4 @@ const startRoom = async(data, options) => {
 //   return room;
 // }
 
-export {startRoom, handleConnectParticipant};
+export {startRoom};

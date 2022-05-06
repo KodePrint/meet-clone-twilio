@@ -2,13 +2,19 @@ import React, {useState, useRef} from 'react'
 import {startRoom} from '../services/startRoom';
 
 const EnterRoom = () => {
+  const [roomInfo, setRoomInfo] = useState({})
+
   const form = useRef(null);
 
   const handleEnterRoom = (event) => {
     event.preventDefault()
     const formData = new FormData(form.current)
-    startRoom(formData.get('roomName')).then(res => console.log(res))
+    startRoom(formData.get('roomName')).then(res => {
+      setRoomInfo(res.json())
+    })
   }
+
+  console.log('RoomInfo:', roomInfo)
 
   return (
     <form ref={form}>

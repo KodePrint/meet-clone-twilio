@@ -1,7 +1,12 @@
+@use '_vars' as c;
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
+  background: c.$bg-primary;
 }
 #root {
   display: grid;

@@ -1,8 +1,32 @@
+@use '_vars' as c;
 
-.options button.active {
-  background: rgb(114, 224, 114);
+.CreateRoom button:hover {
+  box-shadow: 1px 1px 3px c.$color-text;
   transition: .3s all ease;
 }
 .options button {
-  background: rgb(129, 7, 3);
+  background: c.$color-efasis-secondary;
+  color: c.$white;
+  cursor: pointer;
+}
+.options button.active {
+  background: c.$color-efasis-primary;
+  transition: .3s all ease;
+  color: c.$white;
+}
+.submit-btn:disabled {
+  background: c.$color-efasis-secondary;
+  opacity: .7;
+}
+
+.submit-btn {
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: .5rem;
+  color: c.$white;
+  background: c.$color-efasis-primary;
+  padding: .5rem;
+  transition: .3s all ease;
+  cursor: pointer;
 }

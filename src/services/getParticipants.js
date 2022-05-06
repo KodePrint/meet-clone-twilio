@@ -1,14 +1,14 @@
 import { handleConnectParticipant } from "./handlerConnetParticipant";
-import { joinVideoRoom } from "./joinVideoRoom";
+//import { joinVideoRoom } from "./joinVideoRoom";
 
 
-const getParticipants = async(roomName, token, options) => {
-
-  const room = await joinVideoRoom(roomName, token, options)
-  
-  return room
-  await handleConnectParticipant(room.localParticipant)
-  return room.on('participantConnected', handleConnectParticipant);
+const getParticipants = (room) => {
+  const participants = [];
+  participants.push(room.localParticipant);
+  room.participants.forEach(participant => {
+    participants.push(participant);
+  })
+  return participants
 };
 
 export { getParticipants };

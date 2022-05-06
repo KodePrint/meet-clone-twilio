@@ -5,7 +5,7 @@ import Login from '@pages/Login'
 import CreateOrJoinRoom from '@pages/CreateOrJoinRoom'
 import NotFound from '@pages/NotFound'
 import Room from '@pages/Room'
-import '@styles/styles.css'
+import '@styles/styles.scss'
 
 const App = () => {
   return (
