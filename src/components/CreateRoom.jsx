@@ -13,13 +13,16 @@ const CreateRoom = () => {
   const handleStartRoom = (event) => {
     event.preventDefault()
     const formData = new FormData(form.current)
-    const roomName = formData.get('roomName')
+    const data = {
+      roomName: formData.get('roomName'),
+      userName: formData.get('userName'),
+    }
     const options = {
       video: camera,
-      audio: microphone
+      audio: microphone,
     }
-    startRoom(roomName, options).then(res => console.log(res))
-    navigate(`/room/${formData.get('roomName')}`)
+    startRoom(data, options)
+    navigate(`/room/${formData.get('roomName')}`, {state:options})
   }
 
 
@@ -31,7 +34,7 @@ const CreateRoom = () => {
       </div>
         
       <div className='row'>
-        <label htmlFor='roomName'>User Name:</label>
+        <label htmlFor='userName'>User Name:</label>
         <input type='text' id='userName' name='userName' />
       </div>
       <div className='options'>

@@ -2,7 +2,7 @@ const AccessToken = require('twilio').jwt.AccessToken;
 const {v4: uuidv4} = require('uuid');
 const VideoGrant = AccessToken.VideoGrant;
 
-const getAccessToken = (roomName) => {
+const getAccessToken = (roomName, userName) => {
   // Create an Access Token
   const accessToken = new AccessToken(
     process.env.ACCOUNT_SID,
@@ -10,7 +10,7 @@ const getAccessToken = (roomName) => {
     process.env.API_KEY_SECRET,
 
     // Add the identity of the user
-    { identity: uuidv4()}
+    { identity: userName}
   );
 
   const videoGrant = new VideoGrant({

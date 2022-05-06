@@ -6,9 +6,9 @@ class RoomServices {
 
   // Create a romm
   async createRoom(data) {
-    let { roomName } = data;
+    let { roomName, userName } = data;
     const room = await findOrCreateRoom(roomName);
-    const token = await getAccessToken(roomName)
+    const token = await getAccessToken(roomName, userName)
     return {room, token};
   }
 };

@@ -1,7 +1,7 @@
 const express = require('express');
 const RoomServices = require('../services/roomServices');
 const validatorHandler = require('../middlewares/validatorHandler');
-const { createRoomScheme } = require('../schemas/roomSchema')
+const { createRoomScheme, getRoomScheme } = require('../schemas/roomSchema')
 
 const router = express.Router();
 const service = new RoomServices();
@@ -12,6 +12,20 @@ router.get('/', (req, res) => {
     )
   }
 );
+
+router.get('/:roomName',
+  validatorHandler(getRoomScheme, 'params'),
+  async (req, res, next) => {
+    try {
+      const data = req.params;
+      console.log(data)
+      const room = await service.createRoom(data);
+      res.status(201).json(room)
+    } catch (error) {
+      next(error);
+    }
+  }
+)
 
 // Post Routes
 router.post('/',
