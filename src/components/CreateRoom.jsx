@@ -54,7 +54,7 @@ const CreateRoom = () => {
 
     const video = document.getElementById('local-media');
     video.innerText = 'Loading...'
-    createLocalVideoTrack({video:true}).then(track => {
+    createLocalVideoTrack().then(track => {
       console.log("track: ", track)
       video.appendChild(track.attach());
     }).catch(err => {

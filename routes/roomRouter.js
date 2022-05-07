@@ -18,8 +18,7 @@ router.get('/:roomName',
   async (req, res, next) => {
     try {
       const data = req.params;
-      console.log(data)
-      const room = await service.createRoom(data);
+      const room = await service.getRoom(data);
       res.status(201).json(room)
     } catch (error) {
       next(error);
@@ -31,7 +30,6 @@ router.get('/:roomName',
 router.post('/',
   validatorHandler(createRoomScheme, 'body'),
   async (req, res, next) => {
-    console.log(req.body)
     try {
       const data = req.body;
       const room = await service.createRoom(data);

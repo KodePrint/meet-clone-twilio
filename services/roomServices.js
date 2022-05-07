@@ -1,4 +1,4 @@
-const findOrCreateRoom = require('../utils/findOrCreateRoom');
+const { createNewRoom, findExistsRoom } = require('../utils/RoomUtils');
 const {getAccessToken} = require('../utils/getToken');
 
 class RoomServices {
@@ -7,10 +7,20 @@ class RoomServices {
   // Create a romm
   async createRoom(data) {
     let { roomName, userName } = data;
-    const room = await findOrCreateRoom(roomName);
-    const token = await getAccessToken(roomName, userName)
-    return {room, token};
-  }
+    const room = await createNewRoom(roomName);
+    // const token = await getAccessToken(roomName, userName)
+    return room;
+  };
+  
+  // Get a room
+  async getRoom(data) {
+    let { roomName, userName } = data;
+    const room = await findExistsRoom(roomName);
+    return room;
+  };
+
 };
+
+
 
 module.exports = RoomServices
