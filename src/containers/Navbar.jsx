@@ -22,10 +22,10 @@ const Navbar = () => {
           </span>
         </figure>
       </Link>
-      <ul className='menu'>
+      {/* <ul className='menu'>
         <li><Link to=''>Login</Link></li>
         <li><Link to=''>Signup</Link></li>
-      </ul>
+      </ul> */}
     </nav>
   );
 }

@@ -18,13 +18,39 @@ body {
   min-height: 100vh;
 }
 .Layout {
-}
-
-.ghost {
-  height: 6rem;
+  
+  .ghost {
+    height: 6rem;
+  }
 }
 
 // Default styles for all components
+.input-group {
+  display: flex;
+  max-width: min(100%, 35rem);
+  height: 3.5rem;
+  align-items: center;
+  border: .1rem solid c.$french-blue;
+  margin-bottom: 1rem;
+  border-radius: .5rem;
+  position: relative;
+
+  i {
+    position: absolute;
+    color: c.$gray;
+    font-size: 2rem;
+    left: 1rem;
+  }
+  input {
+    width: 100%;
+    height: 100%;
+    padding-left: 3.5rem;
+    outline: none;
+    color: c.$gray;
+    font-size: 1.6rem;
+  }
+}
+
 .btn {
   text-decoration: none;
   background: c.$cadmium-orange;
@@ -33,7 +59,6 @@ body {
   color: c.$mint-cream;
   display: block;
   padding: 1rem;
-  max-width: 16rem;
   border-radius: .5rem;
   margin-bottom: 3rem;
 }

@@ -1,0 +1,120 @@
+@use '_vars' as c;
+
+.Signup {
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+  
+
+  .signup-container {
+    max-width: min(100vw, 36rem);
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    
+    h3 {
+      color: c.$gray;
+      font-size: 1.6rem;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      border-bottom: .1rem solid c.$midnight-blue;
+    }
+
+    .SignupForm {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .StrengthPasswordVerify {
+        width: 100%;
+        
+        .progress-bar {
+          display: flex;
+          height: .5rem;
+          margin-bottom: .5rem;
+          
+          div {
+            background: rgba(c.$gray, .5);
+            width: 100%;
+            border-radius: .5rem;
+            margin-right: .5rem;
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              height: 100%;
+              width: 0%;
+              transition: .3s all ease;
+            }
+          }
+          .one.paint.red::after {
+            width: 100%;
+            background: red;
+          }
+          .one.paint.orange::after {
+            width: 100%;
+            background: rgb(255, 166, 1);
+          }
+          .one.paint.yellow::after {
+            width: 100%;
+            background: rgb(98, 255, 0);
+          }
+          .one.paint.green::after {
+            width: 100%;
+            background: rgb(27, 147, 0);
+
+          }
+          .two.paint.orange::after {
+            width: 100%;
+            background: rgb(255, 166, 1);
+          }
+          .two.paint.yellow::after {
+            width: 100%;
+            background: rgb(98, 255, 0);
+          }
+          .two.paint.green::after {
+            width: 100%;
+            background: rgb(27, 147, 0);
+          }
+          .three.paint.yellow::after {
+            width: 100%;
+            background: rgb(98, 255, 0);
+          }
+          .three.paint.green::after {
+            width: 100%;
+            background: rgb(27, 147, 0);
+          }
+          .four.paint.green::after {
+            width: 100%;
+            background: rgb(27, 147, 0);
+          }
+
+          :last-child {
+            margin-right: 0;
+          }
+        }
+
+        span {
+          font-size: 1.4rem;
+          color: c.$gray;
+          display: flex;
+          width: 100%;
+          justify-content: flex-end;
+          margin-bottom: .5rem;
+        }
+          
+      }
+
+      .submit {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+
+}
