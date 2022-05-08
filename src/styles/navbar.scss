@@ -4,7 +4,7 @@
   height: 6rem;
   width: 100%;
   box-shadow: .1rem .1rem 1rem rgba(c.$gray, .5);
-  position: relative;
+  position: fixed;
   top: 0;
   padding: 0 1rem;
   display: flex;
@@ -13,6 +13,7 @@
   z-index: 5000;
   background: c.$mint-cream;
   
+
   a {text-decoration: none;}
 
   .logo-container {

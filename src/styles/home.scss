@@ -59,7 +59,7 @@
     grid-template-columns: 1fr 1.3fr;
 
     .image-container {
-      max-height: calc(100vh - (14rem + 6rem));
+      max-height: calc(100vh - 14rem);
 
       picture {
         height: 100%;

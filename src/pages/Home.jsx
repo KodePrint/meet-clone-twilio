@@ -6,6 +6,7 @@ import Navbar from '../containers/Navbar';
 import conference from '../assets/images/conference.jpg';
 import '../styles/home.scss';
 
+
 const Home = () => {
   return (
     <div className="Home">
@@ -26,6 +27,7 @@ const Home = () => {
           <img src={conference} alt="" />
         </picture>
       </div>
+      
     </div>
   );
 }
