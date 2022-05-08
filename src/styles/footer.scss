@@ -1,0 +1,36 @@
+@use '_vars' as c;
+
+.Footer {
+  height: 14rem;
+  padding: 2rem;
+  background: c.$black;
+  color: c.$mint-cream;
+
+  .contacts {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+      
+    .social-link {
+        color: c.$gray;
+        display: flex;
+        width: 3rem;
+        height: 3rem;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: 1.6rem;
+        background: rgba(c.$gray, 0.3);
+        border-radius: 50%;
+        margin-right: 1.4rem;
+      }
+    :last-child {
+      margin-right: 0;
+    }
+  }
+  .copyright {
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.8rem;
+  }
+}

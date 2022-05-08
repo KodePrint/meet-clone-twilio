@@ -1,6 +1,33 @@
-$bg-primary: rgba(211, 217, 223, 0.6);
-$color-text: hsla(180, 1%, 23%, 1);
-$color-text-secondary: hsla(206, 4%, 67%, 1);
-$color-efasis-primary: hsla(206, 97%, 54%, 1);
-$color-efasis-secondary: hsla(206, 64%, 31%, 1);
-$white: #fff;
+@font-face {
+  font-family: 'Heebo';
+  src: url('../assets/fonts/heebo-v20-latin-regular.woff2') format('wooff2'),
+    url('../assets/fonts/heebo-v20-latin-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Heebo';
+  src: url('../assets/fonts/heebo-v20-latin-700.woff2') format('wooff2'),
+    url('../assets/fonts/heebo-v20-latin-700.woff') format('woff');
+  font-weight: 700;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../assets/fonts/ubuntu-v20-latin-regular.woff2') format('wooff2'),
+    url('../assets/fonts/ubuntu-v20-latin-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+$gray: rgb(126, 132, 132);
+$french-blue: #0074bd;
+$midnight-blue: #191363;
+$cadmium-orange: #f99034;
+$black: #000000;
+$cultured: #EDF2F4;
+$mint-cream: #f7fff7;
+$font-Ubuntu: 'Ubuntu', sans-serif;
+$font-Heebo: 'Heebo', sans-serif;

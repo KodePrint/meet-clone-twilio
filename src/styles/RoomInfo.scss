@@ -1,21 +1,21 @@
 @use '_vars' as c;
 
 .CreateRoom button:hover {
-  box-shadow: 1px 1px 3px c.$color-text;
+  box-shadow: 1px 1px 3px c.$gray;
   transition: .3s all ease;
 }
 .options button {
-  background: c.$color-efasis-secondary;
-  color: c.$white;
+  background: c.$midnight-blue;
+  color: c.$mint-cream;
   cursor: pointer;
 }
 .options button.active {
-  background: c.$color-efasis-primary;
+  background: c.$cadmium-orange;
   transition: .3s all ease;
-  color: c.$white;
+  color: c.$mint-cream;
 }
 .submit-btn:disabled {
-  background: c.$color-efasis-secondary;
+  background: c.$midnight-blue;
   opacity: .7;
 }
 
@@ -24,8 +24,8 @@
   font-size: 16px;
   font-weight: bold;
   border-radius: .5rem;
-  color: c.$white;
-  background: c.$color-efasis-primary;
+  color: c.$mint-cream;
+  background: c.$cadmium-orange;
   padding: .5rem;
   transition: .3s all ease;
   cursor: pointer;

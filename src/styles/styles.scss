@@ -5,25 +5,40 @@
   margin: 0;
   padding: 0;
 }
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
 body {
-  background: c.$bg-primary;
+  font-size: 1.6rem;
+  background: c.$mint-cream;
+  font-family: c.$font-Heebo;
 }
 #root {
-  display: grid;
-  place-content: center;
   min-height: 100vh;
 }
-.options {
-  display: flex;
-  justify-content: center;
+.Layout {
 }
-.options button:first-child {
-  margin-right: 1rem;
+
+// Default styles for all components
+.btn {
+  text-decoration: none;
+  background: c.$cadmium-orange;
+  text-align: center;
+  font-weight: bold;
+  color: c.$mint-cream;
+  display: block;
+  padding: 1rem;
+  max-width: 16rem;
+  border-radius: .5rem;
+  margin-bottom: 3rem;
 }
-.options button {
-  border: none;
-  font-size: 1.8rem;
-  border-radius: 50%;
-  height: 2.4rem;
-  width: 2.4rem;
+.btn-primary {
+  background: c.$cadmium-orange;
+  border: .2rem solid c.$cadmium-orange
+}
+.btn-secondary {
+  background: transparent;
+  color: c.$french-blue;
+  border: .2rem solid c.$french-blue;
 }

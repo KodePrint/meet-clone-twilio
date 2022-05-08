@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    assetModuleFilename: 'assets/images/[name].[hash].[ext]',
     publicPath: '/',
   },
   mode: 'development',
@@ -46,7 +47,21 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif|webp)$/,
-        type: 'asset'
+        type: 'asset/resource'
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        use: { 
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            mimetype: 'application/font-woff',
+            name: 'fonts/[name].[ext]',
+            outputPath: '.assets/fonts',
+            publicPath: './assets/fonts',
+            esModule:false
+          },
+        },
       },
     ]
   },
