@@ -44,7 +44,6 @@ const StrengthPasswordVerify = ({password}) => {
   useEffect(() => {
     setStrength(testResult.score);
   }, [testResult])
-  console.log(testResult);
   
   return (
     <div className="StrengthPasswordVerify">

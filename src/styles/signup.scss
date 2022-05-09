@@ -24,6 +24,21 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      margin-bottom: 3rem;
+      border-bottom: .1rem solid c.$midnight-blue;
+
+      .name:valid + i {
+        color: c.$french-blue;
+      }
+      .email:valid + i {
+        color: c.$french-blue;
+      }
+      .password:valid + i {
+        color: c.$french-blue;
+      }
+      .password2:valid + i {
+        color: c.$french-blue;
+      }
 
       .StrengthPasswordVerify {
         width: 100%;
@@ -110,11 +125,31 @@
 
       .submit {
         width: 100%;
+        margin-bottom: 3rem;
+      }
+    }
+
+    p {
+      color: c.$gray;
+      text-align: center;
+      
+      a {
+        font-weight: bold;
+        color: c.$french-blue;
+        margin-left: .5rem;
+        text-decoration: none;
+        text-transform: .3s all ease;
+
+        &:hover {
+          color: c.$cadmium-orange;
+        }
       }
     }
   }
 }
 
-@media (max-width: 1200px) {
-
+@media (min-width: 1200px) {
+  .Signup {
+    min-height: unset;
+  }
 }

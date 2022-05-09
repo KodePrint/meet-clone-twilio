@@ -51,7 +51,18 @@
   }
 }
 
-@media(min-width: 1200px) {
+// @media(min-width: 700px) {
+//   .Home {
+//     max-width: 70rem;
+//     margin: 0 auto;
+//     height: calc(100vh);
+
+//     .signup, .login {
+//       max-width: 25rem;
+//     }
+//   }
+// }
+@media(min-width: 1000px) {
   .Home{
     max-width: 120rem;
     margin: 0 auto;
@@ -67,7 +78,7 @@
 
         img {
           width: unset;
-          object-fit: contain;
+          object-fit: cover;
         }
       }
     }
