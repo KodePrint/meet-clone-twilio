@@ -4,8 +4,8 @@ import LoginComponent from '../components/Login';
 
 const Login = () => {
   return (
-    <div className="Login">
-      <div className="login-container">
+    <div className="Login form-page">
+      <div className="container">
         <h3>
           Login with your account in KodeMeet..!
         </h3>

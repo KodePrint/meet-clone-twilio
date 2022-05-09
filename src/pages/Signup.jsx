@@ -7,8 +7,8 @@ import '@styles/signup.scss';
 
 const Signup = () => {
   return (
-    <div className="Signup">
-      <div className="signup-container">
+    <div className="Signup form-page">
+      <div className="container">
         <h3>
           Sign up to the platform and start enjoying the benefits..!
         </h3>

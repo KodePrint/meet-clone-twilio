@@ -24,6 +24,8 @@ const Login = () => {
           className='email' 
           type="email" 
           name='email'
+          placeholder='Enter your email'
+          autocomplete='off'
           required 
         />
         <i className="fas fa-user"></i>
@@ -33,6 +35,8 @@ const Login = () => {
           className='password'
           type="password" 
           name='password' 
+          placeholder='Enter your password'
+          autocomplete='off'
           required 
         />
         <i className="fas fa-lock-alt"></i>

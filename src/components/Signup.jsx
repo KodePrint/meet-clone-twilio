@@ -34,6 +34,8 @@ const Signup = () => {
             className='name' 
             type="text" 
             name='name'
+            placeholder='Enter your name'
+            autocomplete='off'
             required 
           />
           <i className="fas fa-user"></i>
@@ -43,6 +45,8 @@ const Signup = () => {
           className='email' 
           type="email" 
           name='email'
+          placeholder='Enter your email'
+            autocomplete='off'
           required 
         />
         <i className="fas fa-envelope"></i>
@@ -52,6 +56,8 @@ const Signup = () => {
           className='password'
           type="password" 
           name='password' 
+          placeholder='Enter your password'
+            autocomplete='off'
           onChange={handleInputPassword}
           required 
         />
@@ -62,6 +68,8 @@ const Signup = () => {
           className='password2' 
           type="password" 
           name='password2'
+          placeholder='Re-enter your password'
+            autocomplete='off'
           onChange={handleCheckPassword2}
           required 
         />

@@ -6,19 +6,7 @@
   display: grid;
   align-items: center;
 
-  .login-container {
-    max-width: min(100vw, 36rem);
-    padding: 4rem 2rem;
-    margin: 0 auto;
-
-    h3 {
-      color: c.$gray;
-      font-size: 1.6rem;
-      padding-bottom: 3rem;
-      margin-bottom: 3rem;
-      text-align: center;
-      border-bottom: .1rem solid c.$midnight-blue;
-    }
+  .container {
 
     .LoginForm {
       display: flex;
