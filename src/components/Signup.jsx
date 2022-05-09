@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import StrengthPasswordVerify from './StrengthPasswordVerify';
+import React, {useState, useEffect} from 'react'
+import StrengthPasswordVerify from '@components/StrengthPasswordVerify';
 
-const SignupForm = () => {
+const Signup = () => {
 
   const [inputPassword, setInputPassword] = useState('');
   const [inputRePassword, setInputRePassword] = useState('');
@@ -16,22 +16,27 @@ const SignupForm = () => {
     if (e.target.value.length > 0) {
       setInputRePassword(e.target.value);
     }
+  }
+
+  useEffect(() => {
     if (inputPassword === inputRePassword) {
       console.log('Password is correct');
+    } else {
+      let input = document.getElementsByName('password2')
+      input[0]
     }
-  }
-  
-  
+  }, [inputRePassword])
+
   return (
-    <form className="SignupForm">
+    <>
       <div className="input-group name">
-        <input 
-          className='name' 
-          type="text" 
-          name='name'
-          required 
-        />
-        <i className="fas fa-user"></i>
+          <input 
+            className='name' 
+            type="text" 
+            name='name'
+            required 
+          />
+          <i className="fas fa-user"></i>
       </div>
       <div className="input-group email">
         <input 
@@ -63,11 +68,11 @@ const SignupForm = () => {
         <i className="fas fa-lock-alt"></i>
       </div>
       <StrengthPasswordVerify password={inputPassword} />
-      <button className="btn btn-primary submit">
+      <button className="btn btn-primary submit signup-btn">
         Signup
       </button>
-    </form>
+      </>
   );
 }
 
-export default SignupForm;
+export default Signup;

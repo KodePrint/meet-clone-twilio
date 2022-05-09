@@ -38,7 +38,8 @@
 .image-container {
   width: 100%;
   padding: 4rem 2rem;
-  background: rgba(c.$gray, .5);
+  background: rgba(c.$gray, .3);
+
 
   picture {
     display: flex;
@@ -51,30 +52,46 @@
   }
 }
 
-// @media(min-width: 700px) {
-//   .Home {
-//     max-width: 70rem;
-//     margin: 0 auto;
-//     height: calc(100vh);
+@media(min-width: 700px) {
+  .signup, .login {
+    max-width: 25rem;
+  }
 
-//     .signup, .login {
-//       max-width: 25rem;
-//     }
-//   }
-// }
+  .image-container {
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+
+    picture {
+      max-width: min(80%, 60rem);
+    }
+  }
+}
 @media(min-width: 1000px) {
   .Home{
     max-width: 120rem;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1.3fr;
+    align-items: center;
+    height: calc(100vh - 20rem);
+
+    .login {
+      position: relative;
+      overflow: hidden;
+
+    }
 
     .image-container {
-      max-height: calc(100vh - 14rem);
+      height: calc(100vh - 20rem);
+      display: flex;
+      align-items: center;
+      background: linear-gradient(100deg, rgba(c.$gray, .3) 0%, rgba(c.$mint-cream, 1) 100%);
 
       picture {
-        height: 100%;
+        max-height: min(80%, 50rem);
         overflow: hidden;
+        border-radius: 1rem;
 
         img {
           width: unset;

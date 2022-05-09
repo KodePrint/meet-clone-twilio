@@ -1,8 +1,10 @@
 @use '_vars' as c;
 
 .Signup {
-  min-height: 100vh;
+  min-height: calc(100vh - 20rem);
   max-width: 100vw;
+  display: grid;
+  align-items: center;
   overflow-x: hidden;
   
 
@@ -123,9 +125,10 @@
           
       }
 
-      .submit {
+      .signup-btn {
         width: 100%;
         margin-bottom: 3rem;
+        font-size: 1.6rem;
       }
     }
 
@@ -150,6 +153,8 @@
 
 @media (min-width: 1200px) {
   .Signup {
-    min-height: unset;
+    min-height: calc(100vh - 20rem);
+    display: grid;
+    align-items: center;
   }
 }

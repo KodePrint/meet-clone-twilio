@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignupForm from '@containers/SignupForm';
-import Login from '@pages/Login';
+import Forms from '../containers/Forms';
+import SignupComponent from '../components/Signup';
 
 import '@styles/signup.scss';
 
@@ -12,7 +12,9 @@ const Signup = () => {
         <h3>
           Sign up to the platform and start enjoying the benefits..!
         </h3>
-        <SignupForm />
+        <Forms className='SignupForm'>
+          <SignupComponent />
+        </Forms>
         <p>
           Do you already have an account?
           <Link to='/login'>Login</Link>

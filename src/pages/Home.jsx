@@ -19,7 +19,9 @@ const Home = () => {
           The platform that will revolutionize the community
         </p>
         <p>Create more than just meetings, enhance community experiences and get more done with our free-to-use platform.</p>
-        <Link to='/login' className='btn btn-primary login'>Login</Link>
+        <Link to='/login' className='btn btn-primary login'>
+          <span>Login</span>
+        </Link>
         <Link to='/sign-up' className='btn btn-secondary signup'>Signup</Link>
       </div>
       <div className="image-container">
