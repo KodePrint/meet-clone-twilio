@@ -11,7 +11,7 @@ const RecoveryPassword = () => {
           type="email" 
           name='email'
           placeholder='Enter your email'
-          autocomplete='off'
+          autoComplete='off'
           required 
         />
         <i className="fas fa-envelope"></i>

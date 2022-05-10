@@ -1,19 +1,35 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { getAuthUser } from '../services/authWith'
+
 import '@styles/login.scss'
 import Google from '../assets/icons/google-icon.svg'
 import Github from '../assets/icons/github-icon.svg'
 
 const Login = () => {
+  const navigate = useNavigate()
+  
+  const handleAuth = (value) => {
+    console.log(value)
+  }
+
   return (
     <>
-      <button type='button' className='btn-login-with btn-login-google'>
+      <button
+        className='btn-login-with btn-login-google'
+        onClick={handleAuth('google')}
+        type='button' 
+      >
         <figure>
           <img src={Google} />
         </figure>
         Continue with Google
       </button>
-      <button type='button' className='btn-login-with btn-login-github'>
+      <button
+        onClick={handleAuth('github')}
+        type='button' 
+        className='btn-login-with btn-login-github'
+      >
         <figure>
           <img src={Github} />
         </figure>
@@ -25,7 +41,7 @@ const Login = () => {
           type="email" 
           name='email'
           placeholder='Enter your email'
-          autocomplete='off'
+          autoComplete='off'
           required 
         />
         <i className="fas fa-user"></i>
@@ -36,7 +52,7 @@ const Login = () => {
           type="password" 
           name='password' 
           placeholder='Enter your password'
-          autocomplete='off'
+          autoComplete='off'
           required 
         />
         <i className="fas fa-lock-alt"></i>
