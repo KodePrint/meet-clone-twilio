@@ -9,15 +9,15 @@ import Github from '../assets/icons/github-icon.svg'
 const Login = () => {
   const navigate = useNavigate()
   
-  const handleAuth = (value) => {
-    console.log(value)
+  const handleAuth = (e) => {
   }
 
   return (
     <>
       <button
+        data-login='google'
         className='btn-login-with btn-login-google'
-        onClick={handleAuth('google')}
+        onClick={handleAuth}
         type='button' 
       >
         <figure>
@@ -26,7 +26,8 @@ const Login = () => {
         Continue with Google
       </button>
       <button
-        onClick={handleAuth('github')}
+        data-login='github'
+        onClick={handleAuth}
         type='button' 
         className='btn-login-with btn-login-github'
       >
