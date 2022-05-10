@@ -32,5 +32,5 @@ const globalconfigs = {
   githubClientID: process.env.GITHUB_CLIENT_ID,
   githubSecret: process.env.GITHUB_CLIENT_SECRET
 }
-
+console.log(globalconfigs.dbDevUrl)
 module.exports = {globalconfigs}

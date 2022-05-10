@@ -13,7 +13,7 @@ const profile = Joi.object();
 const createUserScheme = Joi.object({
   email: email.required(),
   password: password.required(),
-  profile: createProfileScheme.optional(),
+  name: Joi.string().required(),
 })
 
 const updateUserScheme = Joi.object({

@@ -12,7 +12,6 @@ const createProfileScheme = Joi.object({
   image: image.optional(),
   phone: phone.optional(),
   userId: userId.required(),
-  created: timestamp,
 })
 
 const updateProfileScheme = Joi.object({
@@ -20,7 +19,6 @@ const updateProfileScheme = Joi.object({
   name: name.optional(),
   image: image.optional(),
   phone: phone.optional(),
-  updated: timestamp,
 })
 
 const getProfileScheme = Joi.object({

@@ -5,34 +5,39 @@ const { models } = require('../utils/squelize/sequelize');
 class UserServices {
 
   hash_password(password) {
-    return newPassword = bcrypt.hash(password, 10);
+    const newPassword = bcrypt.hash(password, 10);
+    return newPassword
   }
 
   // Create one
   async create(body) {
     // Hashin a password
-    try {
-      if (!body.name) {
-        throw boom.badRequest('Missing name');
-      }
+    if (!body.name) {
+      throw boom.badRequest('Missing name');
+    }
 
-      body.password = this.hash_password(body.password);
-  
-      const newUser = await models.User.create(body);
-      const newProfile = await models.Profile.create(body);
-      
-      return {
-        message: 'User created',
-        newUser
-      };
-    } catch(error) {
-      return error
-    } 
+    body.password = await this.hash_password(body.password);
+    console.log(body.password);
+
+    const newUser = await models.User.create(body);
+    const newProfile = await models.Profile.create(body);
+    
+    return {
+      message: 'User created',
+      newUser,
+      newProfile
+    };
   }
 
   // Get all
   async getAll(body) {
-    const users = await models.User.findAll({})
+    const users = await models.User.findAll({
+      attributes: ['id', 'email', 'password', 'is_active', 'is_admin'],
+      include: [{
+        association: 'profile',
+        attributes: ['id', 'name', 'image', 'phone'],
+      }],
+    })
     return users;
   }
 
@@ -57,6 +62,9 @@ class UserServices {
         attributes: ['id', 'name', 'image', 'phone'],
       }]
     })
+    if (!user) {
+      throw boom.notFound('User not found');
+    }
     return user
   }
 
