@@ -8,10 +8,6 @@ import '../styles/navbar.scss';
 const Navbar = () => {
   const [showNav, setShowNav] = useState(true);
 
-
-  useEffect(() => {
-    
-  }, []);
   return (
     <nav className={`Navbar ${showNav && 'show'}`}>
       <Link to="/">
