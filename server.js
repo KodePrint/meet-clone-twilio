@@ -1,8 +1,7 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors')
 const routerApi = require('./routes')
-const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/errorHandler')
+const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/errorHandler')
 
 // Settigs API WhiteList
 const whitelist = ['http://localhost:5500','http://localhost:3005',]
@@ -32,6 +31,7 @@ routerApi(app);
 
 // Middlewares
 app.use(logErrors);
+//app.use(ormErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 

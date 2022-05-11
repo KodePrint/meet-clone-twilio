@@ -57,6 +57,10 @@ class User extends Model {
       foreignKey: 'userId'
     });
     // Associate with Rooms
+    this.hasMany(models.Room, {
+      as: 'room',
+      foreignKey: 'userId'
+    })
   }
 
   static config(sequelize) {
@@ -64,7 +68,7 @@ class User extends Model {
       sequelize,
       tableName: USER_TABLE,
       modelName: 'User',
-      timstamps: false,
+      timestamps: false,
     }
   }
 }

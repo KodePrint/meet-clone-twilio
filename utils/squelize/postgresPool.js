@@ -7,6 +7,7 @@ if (globalconfigs.isProd) {
     options.connectionString = globalconfigs.dbUrl;
     options.dialect = 'postgres',
     options.dialectOptions = {ssl: {require:true, rejectUnauthorized:false}}
+} else {
 }
 
 

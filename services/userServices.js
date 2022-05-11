@@ -17,10 +17,14 @@ class UserServices {
     }
 
     body.password = await this.hash_password(body.password);
-    console.log(body.password);
-
+    
     const newUser = await models.User.create(body);
-    const newProfile = await models.Profile.create(body);
+    const newProfile = await models.Profile.create(
+      {
+        name: body.name,
+        userId: newUser.id
+      }
+    );
     
     return {
       message: 'User created',
@@ -30,12 +34,12 @@ class UserServices {
   }
 
   // Get all
-  async getAll(body) {
+  async getAll() {
     const users = await models.User.findAll({
       attributes: ['id', 'email', 'password', 'is_active', 'is_admin'],
       include: [{
         association: 'profile',
-        attributes: ['id', 'name', 'image', 'phone'],
+        attributes: ['name', 'image'],
       }],
     })
     return users;

@@ -9,6 +9,7 @@ class RoomServices {
     let { roomName, userName } = data;
     const room = await createNewRoom(roomName);
     // const token = await getAccessToken(roomName, userName)
+    console.log(room)
     return room;
   };
   
