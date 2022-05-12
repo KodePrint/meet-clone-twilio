@@ -1,15 +1,19 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getAuthUser } from '../services/authWith'
+import { thirdLogin } from '../services/authServices/loginService'
 
 import '@styles/login.scss'
 import Google from '../assets/icons/google-icon.svg'
 import Github from '../assets/icons/github-icon.svg'
 
-const Login = () => {
+const Login = ({innerRef, submit}) => {
+  
   const navigate = useNavigate()
   
   const handleAuth = (e) => {
+    const option = e.target.attributes['data-login'].value
+    console.log(thirdLogin(option))
   }
 
   return (
@@ -58,7 +62,11 @@ const Login = () => {
         />
         <i className="fas fa-lock-alt"></i>
       </div>
-      <button className='btn btn-primary login-btn'>Login</button>
+      <button
+        onClick={submit}
+        className='btn btn-primary login-btn'>
+          Login
+      </button>
       <Link to='/password-recovery'>have you forgotten your password?</Link>
       <p>
         You do not have an account? 

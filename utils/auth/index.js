@@ -2,8 +2,12 @@ const passport = require('passport')
 const { globalconfigs } = require('../../config/global.config')
 const LocalStrategy = require('./strategies/localStrategy')
 const JwtStategy = require('./strategies/jwtStrategy')
+const UserServices = require('../../services/userServices')
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var GitHubStrategy = require('passport-github2').Strategy;
+
+
+const service = new UserServices
 
 passport.serializeUser((user, done)=>{
   done(null, user.id);
@@ -29,7 +33,8 @@ passport.use(
   new GitHubStrategy({
     clientID: globalconfigs.githubClientID,
     clientSecret: globalconfigs.githubSecret,
-    callbackURL: "http://localhost:5000/api/v1/auth/github/callback"
+    callbackURL: "http://localhost:5000/api/v1/auth/github/callback",
+    scope: ['user:email']
   },
   function(accessToken, refreshToken, profile, done) {
     return done(null, profile);

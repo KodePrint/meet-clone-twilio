@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Forms = ({children, className}) => {
+const Forms = ({children, className, innerRef}) => {
   return (
-    <form className={`${className}`}>
+    <form ref={innerRef} className={`${className}`}>
       {children}
     </form>
   );

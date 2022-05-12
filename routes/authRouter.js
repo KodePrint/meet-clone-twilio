@@ -4,6 +4,7 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const AuthServices = require('../services/authServices');
 
+
 const router = express.Router();
 const service = new AuthServices();
 
@@ -28,8 +29,13 @@ router.get(
   passport.authenticate('google', { failureRedirect: '/api/v1/auth/failed' }),
   function(req, res, next) {
     // Successful authentication, redirect home.
-    console.log(req.user)
-    res.redirect('/api/v1/auth/good');
+    const { displayName, emails, photos } = req.user;
+    console.log({
+      name: displayName,
+      email: emails[0].value,
+      image: photos[0].value
+    }) 
+    res.redirect('http://localhost:3005/');
   }
 );
 
@@ -42,8 +48,13 @@ router.get('/github/callback',
   passport.authenticate('github', { failureRedirect: '/api/v1/auth/failed' }),
   function(req, res, next) {
     // Successful authentication, redirect home.
-    console.log(req.user)
-    res.redirect('/api/v1/auth/good');
+    const { displayName, photos, emails } = req.user
+    console.log({
+      name: displayName,
+      email: emails[0].value,
+      image: photos[0].value
+    })
+    res.redirect('http://localhost:3005/');
   }
 );
 
@@ -54,10 +65,15 @@ router.post(
     try {
       const { user } = req;
       const tokens = await service.createTokens(user);
-      res.json({
-        user,
-        tokens
-      })
+      res.json(
+        {
+          "email":user.email,
+          "name": user.profile.name,
+          "image": user.profile.image,
+          "access_token": tokens.token,
+          "refresh_token": tokens.refreshToken
+        }
+      )
     } catch (error) {
       next(error)
     }
