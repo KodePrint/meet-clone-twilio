@@ -12,12 +12,8 @@ class UserServices {
   // Create one
   async create(body) {
     // Hashin a password
-    if (!body.name) {
-      throw boom.badRequest('Missing name');
-    }
-
     body.password = await this.hash_password(body.password);
-    
+    // Create a user
     const newUser = await models.User.create(body);
     const newProfile = await models.Profile.create(
       {
@@ -25,11 +21,12 @@ class UserServices {
         userId: newUser.id
       }
     );
+
+    const user = await this.getById(newUser.id);
     
     return {
-      message: 'User created',
-      newUser,
-      newProfile
+      "message": 'User created',
+      "user": user,
     };
   }
 
