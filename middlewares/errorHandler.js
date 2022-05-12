@@ -23,7 +23,6 @@ function boomErrorHandler(err, req, res, next) {
 }
 
 function ormErrorHandler(err, req, res, next) {
-  console.log('OrmErrorHandler', err.name);
   if (err instanceof ValidationError) {
     res.status(409).json({
       statusCode: 409,

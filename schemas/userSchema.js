@@ -3,7 +3,7 @@ const { createProfileScheme, updateProfileScheme, getProfileScheme } = require('
 
 const id = Joi.number();
 const email = Joi.string();
-const password = Joi.string();
+const password = Joi.string().min(6);
 const isActive = Joi.boolean();
 const isAdmin = Joi.boolean();
 const timestamp = +new Date();;
@@ -19,7 +19,7 @@ const createUserScheme = Joi.object({
 const updateUserScheme = Joi.object({
   email: email.optional(),
   password: password.optional(),
-  profile: updateProfileScheme.optional(),
+  name: Joi.string().optional(),
   updated: timestamp,
 })
 

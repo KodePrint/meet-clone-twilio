@@ -1,10 +1,11 @@
 const express = require('express');
 const boom = require('@hapi/boom');
 const passport = require('passport');
-const { session } = require('passport/lib');
-
+const jwt = require('jsonwebtoken');
+const AuthServices = require('../services/authServices');
 
 const router = express.Router();
+const service = new AuthServices();
 
 router.get('/failed',
   (req, res) => {
@@ -45,5 +46,22 @@ router.get('/github/callback',
     res.redirect('/api/v1/auth/good');
   }
 );
+
+router.post(
+  '/login',
+  passport.authenticate('local', { session: false }),
+  async (req, res, next) => {
+    try {
+      const { user } = req;
+      const tokens = await service.createTokens(user);
+      res.json({
+        user,
+        tokens
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+)
 
 module.exports = router;

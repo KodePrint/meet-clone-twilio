@@ -19,14 +19,14 @@ const LocalStrategy = new Strategy(
       const user = await service.getByEmail(email);
       if (!user) {
         // Si no existe el usuario se envia el error por boom
-        done(boom.unauthorized(), false)
+        done(boom.unauthorized('no se encontro'), false)
       }
-      if (!user.dataValues.isActive) {
-        done(boom.forbidden(), false);
+      if (!user.dataValues.is_active) {
+        done(boom.forbidden('Esta desactivado'), false);
       }
       const isMatch = await bcrypt.compare(password, user.password)
       if (!isMatch) {
-        done(boom.unauthorized(), false)
+        done(boom.unauthorized('no coniciden contraseña'), false)
       }
       delete user.dataValues.password;
       done(null, user);

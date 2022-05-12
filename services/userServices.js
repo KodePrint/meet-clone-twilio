@@ -52,6 +52,9 @@ class UserServices {
       }],
       where: {email}
     })
+    if (!user) {
+      throw boom.notFound('User not found');
+    }
     return user;
   }
 
@@ -74,22 +77,22 @@ class UserServices {
     // Check the user change the password
     if (changes.password) {
       // Hashin a password
-      body.password = this.hash_password(body.password);
+      changes.password = await this.hash_password(changes.password);
     }
     // Get a old user instance
-    const oldUser = await models.User.findByPk(id);
+    const oldUser = await this.getById(id);
     // Update the user
     await oldUser.update(changes);
     // get a new user instance
     const userUpdate = await this.getById(id);
     return {
-      message: `User with email: ${userUpdated.email} has ben updated successfull..!`,
-      userUpdated
+      message: `User with email: ${userUpdate.email} has ben updated successfull..!`,
+      userUpdate
     }
   }
 
   // Logic Delete one
-  async LogicDelete(id) {
+  async logicDelete(id) {
     // Get a user Instance
     const user = await models.User.findByPk(id);
     // Change Value is_active to false
@@ -100,7 +103,7 @@ class UserServices {
   }
 
   // Delete
-  async Delete(id) {
+  async delete(id) {
     // Get a user Instance
     const user = await models.User.findByPk(id);
     // save the user email instance

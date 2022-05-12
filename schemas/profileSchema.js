@@ -15,7 +15,6 @@ const createProfileScheme = Joi.object({
 })
 
 const updateProfileScheme = Joi.object({
-  id: id.optional(),
   name: name.optional(),
   image: image.optional(),
   phone: phone.optional(),

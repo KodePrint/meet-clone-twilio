@@ -1,4 +1,4 @@
-const boom = require('boom');
+const boom = require('@hapi/boom');
 const { models } = require('../utils/squelize/sequelize');
 
 class ProfileServices {
@@ -8,14 +8,14 @@ class ProfileServices {
   }
 
   // Get all
-  async getAll(body) {
-    const profiles = await models.profile.findAll();
+  async getAll() {
+    const profiles = await models.Profile.findAll();
     return profiles;
   }
 
   // Get one
   async getByEmail(name) {
-    const profile = await models.profile.findOne({
+    const profile = await models.Profile.findOne({
       attributes: ['id', 'name', 'image', 'phone'],
       include: [{
         association: 'user',
@@ -27,7 +27,7 @@ class ProfileServices {
   }
 
   async getById(id) {
-    const profile = await models.profile.findByPk(id, {
+    const profile = await models.Profile.findByPk(id, {
       attributes: ['id', 'name', 'image', 'phone'],
       include: [{
         association: 'user',
@@ -40,7 +40,7 @@ class ProfileServices {
   // Update one
   async update(id, changes) {
     // Get a old profile instance
-    const oldprofile = await models.profile.findByPk(id);
+    const oldprofile = await models.Profile.findByPk(id);
     // Update the profile
     await oldprofile.update(changes);
     // get a new profile instance
@@ -54,7 +54,7 @@ class ProfileServices {
   // Logic Delete one
   async LogicDelete(id) {
     // Get a profile Instance
-    const profile = await models.profile.findByPk(id);
+    const profile = await models.Profile.findByPk(id);
     // Change Value is_active to false
     await profile.update({is_active: false});
     return {
@@ -65,7 +65,7 @@ class ProfileServices {
   // Delete
   async Delete(id) {
     // Get a profile Instance
-    const profile = await models.profile.findByPk(id);
+    const profile = await models.Profile.findByPk(id);
     // save the profile email instance
     let name = await profile.getDataValue('name');
     // Delete the profile

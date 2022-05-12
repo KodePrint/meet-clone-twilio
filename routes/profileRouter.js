@@ -1,11 +1,11 @@
 const express = require('express');
 const passport = require('passport');
-const UserServices = require('../services/userServices');
-const { createUserScheme, getUserScheme, updateUserScheme } = require('../schemas/userSchema');
+const ProfileServices = require('../services/profileServices');
+const { createProfileScheme, getProfileScheme, updateProfileScheme } = require('../schemas/profileSchema');
 const validatorHandler = require('../middlewares/validatorHandler');
 
 const router = express.Router();
-const service = new UserServices();
+const service = new ProfileServices();
 
 // *-*-* Get Method's *-*-*
 
@@ -23,7 +23,7 @@ router.get(
 router.get(
   '/:id', 
   //passport.authenticate('jwt', { session: false }), 
-  validatorHandler(getUserScheme, 'params'),
+  validatorHandler(getProfileScheme, 'params'),
   async (req, res, next) => {
     try {
       const {id} = req.params;
@@ -39,7 +39,7 @@ router.get(
 router.post(
   '/',
   //passport.authenticate('jwt', { session: false }), 
-  validatorHandler(createUserScheme, 'body'),
+  validatorHandler(createProfileScheme, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
@@ -55,8 +55,8 @@ router.post(
 router.put(
   '/:id',
   //passport.authenticate('jwt', { session: false }),
-  validatorHandler(getUserScheme, 'params'),
-  validatorHandler(updateUserScheme, 'body'),
+  validatorHandler(getProfileScheme, 'params'),
+  validatorHandler(updateProfileScheme, 'body'),
   async (req, res, next) => {
     try {
       const {id} = req.params;
@@ -73,8 +73,8 @@ router.put(
 router.patch(
   '/:id',
   //passport.authenticate('jwt', { session: false }),
-  validatorHandler(getUserScheme, 'params'),
-  validatorHandler(updateUserScheme, 'body'),
+  validatorHandler(getProfileScheme, 'params'),
+  validatorHandler(updateProfileScheme, 'body'),
   async (req, res, next) => {
     try {
       const {id} = req.params;
@@ -92,7 +92,7 @@ router.patch(
 router.delete(
   '/:id',
   //passport.authenticate('jwt', { session: false }),
-  validatorHandler(getUserScheme, 'params'),
+  validatorHandler(getProfileScheme, 'params'),
   async (req, res, next) => {
     try {
       const {id} = req.params;
@@ -107,7 +107,7 @@ router.delete(
 router.delete(
   '/:id',
   //passport.authenticate('jwt', { session: false }),
-  validatorHandler(getUserScheme, 'params'),
+  validatorHandler(getProfileScheme, 'params'),
   async (req, res, next) => {
     try {
       const {id} = req.params;
